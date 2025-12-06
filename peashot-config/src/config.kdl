@@ -1,0 +1,173 @@
+// Default config for ferrishot
+//
+// Create this file in the appropriate place with `ferrishot --dump-default-config`
+//
+// You can remove all of the defaults, and just keep your overrides
+// if you want to do that
+
+// Show the size indicator
+size-indicator on
+// Show icons around the selection
+selection-icons off
+
+keymap {
+  // Leave the app
+  exit
+
+  // Copies selected region to clipboard, exiting
+  copy-to-clipboard
+  copy-to-clipboard
+
+  // Save to a file
+  save-screenshot
+
+  // Upload and make a link
+  upload-screenshot
+
+  // Set selection to be the entire screen
+  // You can use the syntax of `ferrishot --region` here (see `--help` for more info)
+  select-region "full"
+
+  // Remove the selection
+  clear-selection
+
+  // These 2 commands let you pick any area on the screen in 8 keystrokes
+  pick-top-left-corner
+  pick-bottom-right-corner
+
+  open-keybindings-cheatsheet
+
+  // Set width/height to whatever is the current count.
+  // You can change the count by just writing numbers. e.g. type `100X` to set
+  // the width to 100px
+  set-width
+  set-height
+
+  // move the selection in a direction by 1px
+  move left 1
+  move left 1
+  move down 1
+  move down 1
+  move up 1
+  move up 1
+  move right 1
+  move right 1
+
+  // extend a side by 1px
+  extend left 1
+  extend left 1
+  extend down 1
+  extend down 1
+  extend up 1
+  extend up 1
+  extend right 1
+  extend right 1
+
+  // shrink a side by 1px
+  shrink left 1
+  shrink left 1
+  shrink down 1
+  shrink down 1
+  shrink up 1
+  shrink up 1
+  shrink right 1
+  shrink right 1
+
+  // move rectangle in direction by 125px
+  move left 125
+  move left 125
+  move down 125
+  move down 125
+  move up 125
+  move up 125
+  move right 125
+  move right 125
+
+  // extend a side by 125px
+  extend left 125
+  extend left 125
+  extend down 125
+  extend down 125
+  extend up 125
+  extend up 125
+  extend right 125
+  extend right 125
+
+  // shrink a side by 125px
+  shrink left 125
+  shrink left 125
+  shrink down 125
+  shrink down 125
+  shrink up 125
+  shrink up 125
+  shrink right 125
+  shrink right 125
+}
+
+keymap {}
+
+// editing the `theme` section allows you to fully customize the appearance of ferrishot
+
+theme {
+  palette {
+    accent "#ab6137"
+    fg "#ffffff"
+    bg "#000000"
+  }
+
+  // color of the frame around the selection
+  //
+  // Uses the `accent` color from the `palette`
+  selection-frame @accent
+
+  // // background color of the region that is not selected
+  // non-selected-region @bg opacity=0.5
+
+  // // small drop shadow used, an example is around the selection and also
+  // // around icons surrounding the selection
+  // drop-shadow @bg opacity=0.5
+
+  // // selected text, for instance when editing the size indicator
+  // text-selection @accent opacity=0.3
+
+  // size-indicator-fg @fg
+  // size-indicator-bg @bg opacity=0.5
+
+  // tooltip-fg @fg
+  // tooltip-bg @bg
+
+  // error-fg @fg
+  // // Use a custom hex color
+  // error-bg 0xff_00_00 opacity=0.6
+
+  // info-box-fg @fg
+  // info-box-border @fg
+  // info-box-bg @accent opacity=0.95
+
+  // icon-fg @fg
+  // icon-bg @accent
+
+  // // letters let you pick any region of the screen in 8 clicks
+  // // keys: t (top left corner), b (bottom right corner)
+  // letters-lines @fg
+  // letters-bg @bg opacity=0.6
+  // letters-fg @fg
+
+  // // image uploaded popup (ctrl + U)
+  // image-uploaded-fg @fg
+  // image-uploaded-bg @bg opacity=0.9
+
+  // // for example, the checkmark when you copy to clipboard
+  // success "#00ff00"
+
+  // cheatsheet-bg @bg
+  // cheatsheet-fg @fg
+
+  // popup-close-icon-bg @bg opacity=0.0
+  // popup-close-icon-fg @fg
+
+  // // debug menu, for development (F12)
+  // debug-fg @fg
+  // debug-label "#ff0000"
+  // debug-bg @bg opacity=0.9
+}

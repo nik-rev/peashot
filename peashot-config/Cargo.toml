@@ -1,0 +1,30 @@
+[package]
+name = "peashot-config"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+csscolorparser = "0.8.1"
+eyre = "0.6.12"
+miette = { version = "7.6.0", features = ["fancy"] }
+facet = { version = "0.31", git = "https://github.com/facet-rs/facet.git", rev = "8f304e7ab440408171ba653d23a80b171266e11b" }
+facet-kdl = { version = "0.31", git = "https://github.com/facet-rs/facet.git", rev = "8f304e7ab440408171ba653d23a80b171266e11b" }
+facet-pretty = { version = "0.31", git = "https://github.com/facet-rs/facet.git", rev = "8f304e7ab440408171ba653d23a80b171266e11b" }
+facet-value = { version = "0.1.0", git = "https://github.com/facet-rs/facet.git", rev = "8f304e7ab440408171ba653d23a80b171266e11b" }
+subdef = "0.1.2"
+unicode-ident = "1.0.22"
+# Iced is the native UI framework that ferrishot uses
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "aa8c0c3f4c074a4c7e1701291ab18bded9d8cb70", version = "0.14.0-dev", features = [
+  "canvas",
+  "image",
+  "web-colors",
+  "advanced",
+  "svg",
+  "wgpu",
+  "tokio",
+  "qr_code",
+] }
+cfg-if = "1.0.4"
+kdl = "6.5.0"
+annotate-snippets = "0.12.10"
+strum = { version = "0.27.2", features = ["phf", "derive"] }

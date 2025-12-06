@@ -1,0 +1,117 @@
+[package]
+name = "ferrishot"
+version = "0.2.0"
+license = "MIT OR Apache-2.0"
+edition = "2024"
+description = "A powerful screenshot app"
+repository = "https://github.com/nik-rev/ferrishot"
+homepage = "https://github.com/nik-rev/ferrishot"
+keywords = ["screenshot", "screen-capture", "capture", "flameshot"]
+categories = ["visualization", "multimedia"]
+authors = ["Nik Revenco"]
+
+[features]
+debug = []
+
+[workspace]
+members = [".", "docgen"]
+
+[package.metadata.wix]
+upgrade-guid = "338F87CB-7559-4755-9DC7-889308AFCC72"
+path-guid = "B2F84121-9832-457D-AD64-A5598BCD4AA7"
+license = false
+eula = false
+
+[build-dependencies]
+# to generate the RGBA bytes for logo of ferrishot
+image = "0.25.6"
+
+[dependencies]
+
+# --- core crates ---
+# obtain position of the mouse
+mouse_position = "0.1"
+
+# cross-platform "take a screenshot of the monitor" UI.
+xcap = { version = "0.7", features = [ "image" ] }
+
+# Iced is the native UI framework that ferrishot uses
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "aa8c0c3f4c074a4c7e1701291ab18bded9d8cb70", version = "0.14.0-dev", features = [
+  "canvas",
+  "image",
+  "web-colors",
+  "advanced",
+  "svg",
+  "wgpu",
+  "tokio",
+  "qr_code",
+] }
+# provider a cross-platform clipboard API
+arboard = { version = "3", features = ["wayland-data-control"] }
+# image encoding, transformations and decoding
+image = "0.25"
+# command line argument parser
+clap = { version = "4", features = [
+  "derive",
+  "wrap_help",
+  "unstable-markdown",
+] }
+# file dialog
+rfd = "0.16"
+# cross-platform API to get locations like config directory, cache directory...
+etcetera = "0.11"
+# tempfile for data transmission of the image bytes
+tempfile = "3"
+# async runtime
+tokio = { version = "1", features = ["full"] }
+# knus is the serde-like derive macro to parse KDL into Rust structs
+#
+# This is a fork simply so we can publish the branch https://github.com/nik-rev/knus/tree/kdl-v2
+# to crates.io, required to be able to use kdl-v2
+#
+# I'd like to just use kdl-v2 to avoid breaking users' configs in the future when we'll
+# migrate from kdl v1 -> kdl v2 anyways
+ferrishot_knus = "3.3"
+# pretty error messages for KDL derive
+miette = { version = "7.5.0", features = ["fancy"] }
+
+# --- logging ---
+env_logger = "0.11.8"
+log = "0.4.27"
+chrono = "0.4.40"     # used only for time stamp
+
+# --- send web requsts ---
+reqwest = { version = "0.12.15", default-features = false, features = [
+  # this + `default-features = false` removes dependency on OpenSSL
+  "rustls-tls",
+  "json",
+  "multipart",
+  "stream",
+] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+
+pretty_assertions = "1.4.1"
+
+# --- helper crates ---
+
+# typed error enum generation
+thiserror = "2.0.12"
+# avoid boilerplate when writing methods that just call methods on fields in the same struct
+delegate = "0.13"
+# Allows implementing methods for external types via extension traits
+# this crate allows skipping the definition of the extension trait which means we
+# don't have to write signatures of the functions twice which is awesome
+easy-ext = "1.0.2"
+derive_more = { version = "2.0.1", features = ["is_variant"] }
+strum = { version = "0.27.1", features = ["derive"] }
+human_bytes = "0.4.3"
+# generate builder methods
+bon = "3.6.3"
+# allows
+tap = "1.0.1"
+# dedents string literals
+indoc = "2.0.6"
+
+anstyle = "1.0.10"
+paste = "1.0.15"
