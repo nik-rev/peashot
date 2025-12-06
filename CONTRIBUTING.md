@@ -1,3 +1,6 @@
+NOTE: This guide will be out of date. Currently, Peashot is work in progress to release the v0.3.
+Once that happens, this guide will be re-written
+
 # Contributing
 
 **How it works**: `ferrishot` takes a screenshot of the focused monitor and creates a fullscreen window with background set to the taken screenshot.

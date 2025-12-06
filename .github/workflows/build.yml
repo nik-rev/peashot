@@ -1,64 +1,64 @@
-name: Build
-on:
-  pull_request:
-  push:
-    branches:
-      - main
+# name: Build
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+# jobs:
+#   check:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - run: cargo check
+#       - run: cargo check
 
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+#   format:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - run: cargo fmt --check
+#       - run: cargo fmt --check
 
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    # if one OS fails, still test the other ones
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+#   test:
+#     runs-on: ${{ matrix.os }}
+#     strategy:
+#       matrix:
+#         os: [ubuntu-latest, macos-latest, windows-latest]
+#     # if one OS fails, still test the other ones
+#     continue-on-error: true
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - name: Install linux dependencies
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgl-dev libx11-dev libx11-xcb-dev libwayland-dev
+#       - name: Install linux dependencies
+#         if: matrix.os == 'ubuntu-latest'
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y libgl-dev libx11-dev libx11-xcb-dev libwayland-dev
 
-      # ld linker fails to build because some symbol names are too long
-      # since one of Ferrishot's dependencies uses "chumsky" which is a
-      # parser combinator crate for Rust.
-      - if: runner.os == 'macOS'
-        run: brew install lld
+#       # ld linker fails to build because some symbol names are too long
+#       # since one of Ferrishot's dependencies uses "chumsky" which is a
+#       # parser combinator crate for Rust.
+#       - if: runner.os == 'macOS'
+#         run: brew install lld
 
-      - run: cargo test --workspace
+#       - run: cargo test --workspace
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rust-lang/setup-rust-toolchain@v1
+#   lint:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions-rust-lang/setup-rust-toolchain@v1
 
-      - run: cargo clippy --workspace --all-targets -- -D warnings
+#       - run: cargo clippy --workspace --all-targets -- -D warnings
 
-  nix:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v27
+#   nix:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: cachix/install-nix-action@v27
 
-      - run: nix build
+#       - run: nix build

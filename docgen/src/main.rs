@@ -4,7 +4,7 @@ use std::{fs::File, io::Write, path::PathBuf};
 use clap::{CommandFactory, ValueEnum};
 use clap_complete::generate_to;
 use clap_markdown::MarkdownOptions;
-use ferrishot::Cli;
+use peashot::Cli;
 
 fn main() {
     let mut cmd = Cli::command();

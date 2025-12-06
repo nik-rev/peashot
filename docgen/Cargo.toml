@@ -1,14 +1,17 @@
 [package]
 name = "docgen"
-version = "0.1.0"
-edition = "2024"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
 
 [dependencies]
-ferrishot = { path = ".." }
-clap = { version = "4.5.35", features = ["derive"] }
-clap_complete = "4.5.49"
-clap_complete_nushell = "4.5.5"
-clap-markdown = "0.1.5"
-carapace_spec_clap = "1.1.0"
-clap_complete_fig = "4.5.2"
-clap_mangen = "0.2.26"
+peashot.workspace = true
+clap.workspace = true
+clap_complete.workspace = true
+clap_complete_nushell.workspace = true
+clap-markdown.workspace = true
+carapace_spec_clap.workspace = true
+clap_complete_fig.workspace = true
+clap_mangen.workspace = true

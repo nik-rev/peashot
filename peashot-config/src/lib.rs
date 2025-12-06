@@ -20,7 +20,7 @@ struct Config {
 
 #[test]
 fn parse_kdl() {
-    let kdl_src = include_str!("config.kdl");
+    let kdl_src = include_str!("../default-config.kdl");
     let kdl = match kdl_src.parse::<::kdl::KdlDocument>() {
         Ok(kdl) => kdl,
         Err(err) => {
@@ -71,7 +71,7 @@ fn parse_kdl() {
             let render = renderer.render(&diagnostics);
             eprintln!("{render}");
             panic!();
-        },
+        }
     };
 
     struct Error {
@@ -95,7 +95,7 @@ fn parse_kdl() {
             error!(ty.span(), "unexpected type annotation");
         }
         match node.name().value() {
-            "keymap" => {},
+            "keymap" => {}
         }
     }
 

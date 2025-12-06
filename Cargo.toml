@@ -1,55 +1,116 @@
 [workspace]
 resolver = "3"
-members = ["peashot-config", "peashot-macros", "peashot"]
+members = ["peashot-config", "peashot-macros", "peashot", "docgen"]
 
-[lints.rust]
-missing_docs = "warn"
-unused_qualifications = "warn"
+[workspace.package]
+version = "0.2.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/nik-rev/peashot"
+homepage = "https://peashot.com"
 
-[lints.clippy]
-pedantic = { priority = -1, level = "warn" }
-nursery = { priority = -1, level = "warn" }
+[workspace.dependencies]
+peashot = { path = "peashot" }
+peashot-config = { path = "peashot-config" }
+peashot-macros = { path = "peashot-macros" }
 
-# $a * $b + $c is slower and less precise than $a.mul_add($b, $c) but it is more readable
-# the gain in speed / precision will be negligible in most situations
-suboptimal_flops = "allow"
-# arbitrary limit imposes unnecessary restriction and can make code harder to follow
-too_many_lines = "allow"
-# if we need it const, make it const. no need to make everything that can be const, const
-missing_const_for_fn = "allow"
+# cross-platform "take a screenshot of the monitor" UI.
+xcap = { version = "0.7", features = [ "image" ] }
+# obtain position of the mouse
+mouse_position = "0.1"
+# provider a cross-platform clipboard API
+arboard = { version = "3", features = ["wayland-data-control"] }
+# image encoding, transformations and decoding
+image = "0.25"
+# command line argument parser
+clap = { version = "4", features = [
+  "derive",
+  "wrap_help",
+  "unstable-markdown",
+] }
+# file dialog
+rfd = "0.16"
+# cross-platform API to get locations like config directory, cache directory...
+etcetera = "0.11"
+# tempfile for data transmission of the image bytes
+tempfile = "3"
+# async runtime
+tokio = { version = "1", features = ["full"] }
 
-if_then_some_else_none = "warn"
+# pretty error messages for KDL derive
+miette = { version = "7", features = ["fancy"] }
 
-# --- casts
-#
-# casts from floats -> int are common in the code, and in
-# most cases we don't care about precision as we are
-# dealing with pixels which cannot be float.
-cast_sign_loss = "allow"
-cast_possible_truncation = "allow"
-cast_precision_loss = "allow"
-# ---
+# --- logging ---
+env_logger = "0.11"
+log = "0.4"
+chrono = "0.4" # used only for time stamp
 
-missing_errors_doc = "allow"
+# --- send web requsts ---
+reqwest = { version = "0.12", default-features = false, features = [
+  # this + `default-features = false` removes dependency on OpenSSL
+  "rustls-tls",
+  "json",
+  "multipart",
+  "stream",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 
-# use Trait; => use Trait as _;
-unused_trait_names = "warn"
+pretty_assertions = "1"
 
-# #[allow] => #[allow, reason = "why"]
-allow_attributes_without_reason = "warn"
-# .unwrap() => .expect("why")
-unwrap_used = "warn"
-# assert!(...) => assert!(..., "why")
-missing_assert_message = "warn"
+csscolorparser = "0.8"
+eyre = "0.6"
+# Iced is the native UI framework that ferrishot uses
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "aa8c0c3f4c074a4c7e1701291ab18bded9d8cb70", version = "0.14.0-dev", features = [
+  "canvas",
+  "image",
+  "web-colors",
+  "advanced",
+  "svg",
+  "wgpu",
+  "tokio",
+  "qr_code",
+] }
+cfg-if = "1.0.4"
+kdl = "6.5.0"
+annotate-snippets = "0.12.10"
 
-missing_docs_in_private_items = "warn"
+# --- helper crates ---
 
-# --- catch debug remnants
-print_stderr = "warn"
-print_stdout = "warn"
-dbg_macro = "warn"
-todo = "warn"
-# ---
+# typed error enum generation
+thiserror = "2"
+# avoid boilerplate when writing methods that just call methods on fields in the same struct
+delegate = "0.13"
+# Allows implementing methods for external types via extension traits
+# this crate allows skipping the definition of the extension trait which means we
+# don't have to write signatures of the functions twice which is awesome
+easy-ext = "1"
+derive_more = { version = "2", features = ["is_variant"] }
+strum = { version = "0.27", features = ["derive"] }
+human_bytes = "0.4"
+# generate builder methods
+bon = "3.8"
+# functional-style traits for piping
+tap = "1"
+# dedents string literals
+indoc = "2"
+
+anstyle = "1"
+paste = "1"
+
+heck = "0.5.0"
+itertools = "0.14.0"
+proc-macro2 = "1.0.103"
+quip = "0.1.0"
+quote = "1.0.42"
+syn = { version = "2.0.111", features = ["full"] }
+
+clap_complete = "4.5.49"
+clap_complete_nushell = "4.5.5"
+clap-markdown = "0.1.5"
+carapace_spec_clap = "1.1.0"
+clap_complete_fig = "4.5.2"
+clap_mangen = "0.2.26"
 
 # The profile that 'dist' will build with
 [profile.dist]
