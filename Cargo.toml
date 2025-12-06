@@ -30,32 +30,13 @@ image = "0.25.6"
 
 # --- core crates ---
 # obtain position of the mouse
-mouse_position = "0.1.4"
+mouse_position = "0.1"
 
 # cross-platform "take a screenshot of the monitor" UI.
-#
-# FORK: screenshot on wayland using libwayshot is very fast,
-# so it comes before x11 and freedesktop. The reason is that
-# freedesktop can block for like 1.5s before giving up. x11 can block for about 30ms
-# libwayshot blocks for about 500ns. by "block" I mean how long it takes
-#
-# on the original xcap, they try libwayshot AFTER trying freedesktop
-# which leads to VERY bad performance on wayland (about 1.5 seconds delay for nothing)
-xcap = { package = "ferrishot_xcap", version = "0.4.1", features = [
-  "image",
-  "vendored",
-] }
+xcap = { version = "0.7", features = [ "image" ] }
 
 # Iced is the native UI framework that ferrishot uses
-# 
-# We need iced 0.14 (currently just `master`) for the app to function properly. This is because
-# prior to iced 0.14, there is no way to create a full-screen window. That means we'd have to
-# - create the window
-# - THEN make it full screen
-#
-# This makes a "flash" for a split second which is very noticable and makes the experience worse
-# And we need this iced 0.14 available on crates.io because I'd like to publish ferrishot to crates.io
-iced = { package = "ferrishot_iced", version = "0.14.1", features = [
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "aa8c0c3f4c074a4c7e1701291ab18bded9d8cb70", version = "0.14.0-dev", features = [
   "canvas",
   "image",
   "web-colors",
@@ -66,25 +47,25 @@ iced = { package = "ferrishot_iced", version = "0.14.1", features = [
   "qr_code",
 ] }
 # provider a cross-platform clipboard API
-arboard = { version = "3.5", features = ["wayland-data-control"] }
+arboard = { version = "3", features = ["wayland-data-control"] }
 # image encoding, transformations and decoding
-image = "0.25.6"
+image = "0.25"
 # command line argument parser
-clap = { version = "4.5.35", features = [
+clap = { version = "4", features = [
   "derive",
   "wrap_help",
   "unstable-markdown",
 ] }
 # file dialog
-rfd = "0.15.3"
+rfd = "0.16"
 # cross-platform API to get locations like config directory, cache directory...
-etcetera = "0.10.0"
+etcetera = "0.11"
 # tempfile for data transmission of the image bytes
-tempfile = "3.19.1"
+tempfile = "3"
 # async runtime
-tokio = { version = "1.44.2", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
 # knus is the serde-like derive macro to parse KDL into Rust structs
-# 
+#
 # This is a fork simply so we can publish the branch https://github.com/nik-rev/knus/tree/kdl-v2
 # to crates.io, required to be able to use kdl-v2
 #
@@ -97,9 +78,9 @@ miette = { version = "7.5.0", features = ["fancy"] }
 # --- logging ---
 env_logger = "0.11.8"
 log = "0.4.27"
-chrono = "0.4.40"     # used only for time stamp 
+chrono = "0.4.40"     # used only for time stamp
 
-# --- send web requsts --- 
+# --- send web requsts ---
 reqwest = { version = "0.12.15", default-features = false, features = [
   # this + `default-features = false` removes dependency on OpenSSL
   "rustls-tls",
@@ -127,7 +108,7 @@ strum = { version = "0.27.1", features = ["derive"] }
 human_bytes = "0.4.3"
 # generate builder methods
 bon = "3.6.3"
-# allows 
+# allows
 tap = "1.0.1"
 # dedents string literals
 indoc = "2.0.6"
@@ -154,7 +135,7 @@ missing_const_for_fn = "allow"
 if_then_some_else_none = "warn"
 
 # --- casts
-# 
+#
 # casts from floats -> int are common in the code, and in
 # most cases we don't care about precision as we are
 # dealing with pixels which cannot be float.
