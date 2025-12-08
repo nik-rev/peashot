@@ -1,0 +1,92 @@
+/* Base mdbook styles */
+:root {
+    --sidebar-target-width: 300px;
+    --sidebar-width: min(var(--sidebar-target-width), 80vw);
+    --sidebar-resize-indicator-width: 8px;
+    --sidebar-resize-indicator-space: 2px;
+    --page-padding: 15px;
+    --content-max-width: 750px;
+    --menu-bar-height: 50px;
+    --mono-font:
+      "FiraCode", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
+      Courier New, monospace;
+    --code-font-size: 0.875em; /* please adjust the ace font size accordingly in editor.js */
+    --searchbar-margin-block-start: 5px;
+    --code-text: oklch(0.961 0.003 125.547);
+    --code-bg: oklch(0.531 0.067 142.895 / 0.2);
+}
+
+.peashot {
+    --bg: oklch(0.183 0.008 170.779);
+    --fg: oklch(0.753 0.022 153.738);
+
+    --sidebar-bg: oklch(0.172 0.007 112.943);
+    --sidebar-fg: oklch(0.762 0.02 147.541);
+    --sidebar-non-existant: oklch(0.437 0.004 122.754);
+    --sidebar-active: oklch(0.747 0.121 144.443);
+    --sidebar-spacer: oklch(0.329 0.05 142.895);
+
+    --scrollbar: oklch(0.405 0.023 139.795);
+
+    --icons: oklch(0.762 0.02 145.374);
+    --icons-hover: oklch(0.919 0.007 136.947);
+
+    --links: oklch(0.923 0.022 153.738);
+
+    --inline-code-color: oklch(0.911 0.093 130.999);
+
+    --theme-popup-bg: oklch(0.211 0.014 136.452);
+    --theme-popup-border: oklch(0.509 0.023 138.93);
+    --theme-hover: oklch(0.359 0.021 139.426);
+
+    --quote-bg: oklch(0.359 0.021 146.861 / 0.4);
+    --quote-border: oklch(0.423 0.025 145.869 / 0.5);
+
+    --warning-border: oklch(0.895 0.065 56 / 0.2);
+
+    --table-border-color: oklch(0.405 0.023 146.861 / 0.5);
+    --table-header-bg: oklch(0.359 0.021 149.339 / 0.5);
+    --table-alternate-bg: oklch(0.312 0.018 132.486 / 0.4);
+
+    --searchbar-border-color: oklch(0.405 0.023 137.443);
+    --searchbar-bg: oklch(0.332 0.017 137.939 / 0.5);
+    --searchbar-fg: oklch(0.762 0.02 144.382);
+    --searchbar-shadow-color: oklch(0.263 0.013 122.573);
+    --searchresults-header-fg: oklch(0.666 0.03 141.904);
+    --searchresults-li-bg: oklch(0.359 0.021 144.382);
+    --search-mark-bg: oklch(0.606 0.201 145.869);
+    --searchresults-border-color: oklch(0.627 0 123.564);
+
+    --color-scheme: dark;
+
+    /* Same as `--icons` */
+    --copy-button-filter: invert(45%) sepia(6%) saturate(621%) hue-rotate(198deg) brightness(99%) contrast(85%);
+    /* Same as `--sidebar-active` */
+    --copy-button-filter-hover: invert(68%) sepia(55%) saturate(531%) hue-rotate(341deg) brightness(104%) contrast(101%);
+
+    --footnote-highlight: oklch(0.507 0.119 140.417);
+
+    --overlay-bg: oklch(0.274 0.018 130.504 / 0.4);
+
+    --blockquote-note-color: #74b9ff;
+    --blockquote-tip-color: #09ca09;
+    --blockquote-important-color: #d3abff;
+    --blockquote-warning-color: #f0b72f;
+    --blockquote-caution-color: #f21424;
+
+    --sidebar-header-border-color: #c18639;
+}
+
+/* EXTRA, there variables are NOT in mdbook */
+:root.peashot {
+    --font: "IA Writer Quattro S", sans-serif;
+    --title-font: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --title-color: oklch(0.796 0.096 147.541);
+    --code-font-size: 0.875em;
+    --pre-bg: oklch(0.154 0.005 135.46);
+    --pre-border: oklch(0.698 0.149 144.382 / 0.3);
+    --pre-shadow: oklch(0.698 0.149 142.4 / 0.1);
+    --sidebar-active: oklch(0.747 0.121 144.443);
+    --sidebar-active-bg: oklch(0.468 0.136 145.475 / 0.25);
+    --sidebar-active-bg2: oklch(0.468 0.136 145.475 / 0.10);
+}

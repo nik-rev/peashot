@@ -1,0 +1,23 @@
+/* All 3 fonts are licensed under the Open Font License.
+See https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL */
+
+@font-face {
+  font-family: "IA Writer Quattro S";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/iAWriterQuattroS-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/fonts/Lora.var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FiraCode";
+  src: url("/fonts/FiraCode-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}

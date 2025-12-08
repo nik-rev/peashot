@@ -1,0 +1,75 @@
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: oklch(0.418 0.051 147.541);
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-attr,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: oklch(0.74 0.04 67.057);
+}
+
+/* Orange */
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: oklch(0.74 0.04 350.582);
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: oklch(0.796 0.096 147.541);
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: oklch(0.74 0.04 133.973);
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: oklch(0.74 0.04 308.45);
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: var(--pre-bg);
+  color: var(--fg);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-addition {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.hljs-deletion {
+  color: #b31d28;
+  background-color: #ffeef0;
+}

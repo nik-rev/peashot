@@ -1,22 +1,16 @@
 [book]
 authors = ["Nik Revenco"]
 language = "en"
-multilingual = false
-src = "src"
-title = "ferrishot"
+title = "Peashot"
 
 [output.html]
-cname = "ferrishot.com"
-additional-css = ["./theme/theme.css", "./mdbook-admonish.css"]
-default-theme = "light"
-preferred-dark-theme = "light"
-git-repository-url = "https://github.com/nik-rev/ferrishot"
-edit-url-template = "https://github.com/nik-rev/ferrishot/edit/main/docs/{path}"
-
-[build]
-build-dir = "docs"
-
-[preprocessor.admonish]
-command = "mdbook-admonish"
-assets_version = "3.0.3"    # do not edit: managed by `mdbook-admonish install`
-[preprocessor.alerts]
+site-url = "/docs/"
+preferred-dark-theme = "peashot"
+default-theme = "peashot"
+git-repository-url = "https://github.com/nik-rev/peashot"
+edit-url-template = "https://github.com/nik-rev/peashot/edit/main/docs/{path}"
+additional-css = ["theme/fonts/fonts.css", "theme/extra.css", "theme/noise.png"]
+# Don't show table of contents for entire page in the navigation bar
+sidebar-header-nav = false
+no-section-label = true
+hash-files = false

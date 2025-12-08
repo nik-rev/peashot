@@ -1,0 +1,79 @@
+code {
+  font-family: var(--mono-font) !important;
+  font-size: var(--code-font-size);
+  direction: ltr !important;
+}
+
+code:not(pre code).hljs {
+  color: var(--code-text) !important;
+  background-color: var(--code-bg) !important;
+}
+
+html {
+    font-family: var(--font) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  font-family: var(--title-font);
+  font-weight: 480;
+  color: var(--title-color) !important;
+  a {
+      position: relative;
+      font-family: var(--title-font);
+      font-weight: 480;
+      color: var(--title-color) !important;
+  }
+}
+
+html, body {
+    position: relative;
+    height: auto;
+}
+
+.noise {
+  pointer-events: none;
+  user-select: none;
+  z-index: 1000;
+  position: absolute;
+  inset: 0;
+  background-size: 180px;
+  background-repeat: repeat;
+  opacity: 0.012;
+}
+
+.part-title {
+    color: var(--title-color) !important;
+    font-weight: 900;
+}
+
+.chapter li a {
+  display: block;
+  padding: 0 4px;
+  text-decoration: none;
+  color: var(--sidebar-fg);
+}
+
+.chapter li a:hover {
+  color: var(--sidebar-active);
+  background-color: var(--sidebar-active-bg2);
+}
+
+.chapter li a.active {
+  color: var(--sidebar-active);
+  background-color: var(--sidebar-active-bg);
+}
+
+main p a, main li a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 1.5px !important;
+}
+
+pre {
+  background-color: var(--pre-bg);
+}
