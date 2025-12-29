@@ -2,7 +2,7 @@
 # to make use of fast compile speeds and nightly rustfmt features
 #
 # But peashot will always build with the latest stable Rust toolchain.
-toolchain.channel = "nightly-2025-12-05"
+toolchain.channel = "nightly-2025-12-26"
 toolchain.components = [
   "rust-analyzer",
   "cargo",
